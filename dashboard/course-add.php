@@ -268,6 +268,7 @@ ini_set('display_errors', 1);
                                         <label>Course Category</label>
                                         <select class="select" name="course_category" required>
                                         <option value="0" disabled selected>--SELECT--</option>
+                                        <optgroup label="Your Categories:">
                                             <?php
                                                 $selectQuery = "SELECT * FROM `course_category_master` WHERE `course_category_owner` = $user_id";
                                                 $result = mysqli_query($conn, $selectQuery);
@@ -283,6 +284,24 @@ ini_set('display_errors', 1);
                                                     echo "Error fetching values from the database: " . mysqli_error($conn);
                                                 }
                                             ?>
+                                            </optgroup>
+                                        <optgroup label="Other Categories:">
+                                            <?php
+                                                $selectQuery = "SELECT * FROM `course_category_master` WHERE `course_category_owner` != $user_id";
+                                                $result = mysqli_query($conn, $selectQuery);
+                                                // Check if there are results
+                                                if ($result) {
+                                                    // Iterate through the results and print options
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        ?>
+                                                        <option value='<?php echo $row["course_category_id"];?>'><?php echo $row["course_category_name"];?></option>
+                                                        <?php
+                                                    }
+                                                } else {
+                                                    echo "Error fetching values from the database: " . mysqli_error($conn);
+                                                }
+                                            ?>
+                                            </optgroup>
                                         </select>
                                     </div>
                                 </div>

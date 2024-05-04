@@ -52,11 +52,12 @@
                         $sqlToDeleteChapter = "DELETE FROM course_chapter_list WHERE course_chapter_id = $chapterId";
                         $resultToDeleteChapter = mysqli_query($conn, $sqlToDeleteChapter);
                         if($resultToDeleteChapter){
-                            $sqlToSelectCourseDetails = "SELECT course_image FROM course_master WHERE course_id = $courseId";
+                            $sqlToSelectCourseDetails = "SELECT course_image, course_demo_lecture FROM course_master WHERE course_id = $courseId";
                             if($resultToSelectCourseDetails = mysqli_query($conn, $sqlToSelectCourseDetails)){
                                 $rowToSelectCourseDetails = mysqli_fetch_assoc($resultToSelectCourseDetails);
                                 if ($rowToSelectCourseDetails["course_image"] != "assets/img/notfound.png" && file_exists("../" . $rowToSelectCourseDetails["course_image"])) {
                                     if(unlink("../" . $rowToSelectCourseDetails["course_image"])){
+                                        unlink("../" . $rowToSelectCourseDetails["course_demo_lecture"]);
                                         $sqlToDeleteCourse = "DELETE FROM `course_master` WHERE course_id = $courseId";
                                         $resultToDeleteCourse = mysqli_query($conn, $sqlToDeleteCourse);
                                         if($resultToDeleteCourse){

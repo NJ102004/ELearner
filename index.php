@@ -201,29 +201,29 @@
                                     if(mysqli_num_rows($result1) > 0){
                                         $rowdata1 = mysqli_fetch_assoc($result1);
                                         ?>
+                                                <div class="card swiper-slide">
+                                                <a href="course-overview.php?id=<?php echo $rowdata['course_id']?>">
+                                                    <div class="image-content">
 
-             
-                <div class="card swiper-slide">
-                <a href="course-overview.php?id=<?php echo $rowdata['course_id']?>">
-                    <div class="image-content">
+                                                        <div class="card-image">
+                                                            <img src="<?php echo $rowdata['course_image'] ?>" alt="" class="card-img">
+                                                        </div>
+                                                    </div>
 
-                        <div class="card-image">
-                            <img src="<?php echo $rowdata['course_image'] ?>" alt="" class="card-img">
-                        </div>
-                    </div>
-
-                    <div class="card-content">
-                        <h2 class="name"><?php echo $rowdata['course_name'];?></h2>
-                        <p class="description"><?php echo $rowdata['course_description'];?></p>
-                    </div>
-                    </a>
-                </div>
-                <?php
-                    }
-                }
-            }
-        }
-    }
+                                                    <div class="card-content">
+                                                        <h2 class="name"><?php echo $rowdata['course_name'];?></h2>
+                                                        <p class="description"><?php echo $rowdata['course_description'];?></p>
+                                                    </div>
+                                                    </a>
+                                                </div>
+                                        <?php
+                                        }
+                                    }
+                                }
+                        }else{
+                            echo "<p style='color: white;'>No course found.</p>";
+                        }
+                    }   
                 ?>
                 
             </div>

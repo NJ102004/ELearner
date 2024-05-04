@@ -17,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php echo "Search - " . $_GET['search_term'];?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -39,7 +39,11 @@
           $result = mysqli_query($conn, $sql);
     ?> 
     <div class="scoursecon" style="margin-bottom:40px; min-height:41vh;">
-        <?php while ($row = $result->fetch_assoc()): 
+        <?php 
+        if(mysqli_num_rows($result) == 0){
+            echo "<center><a>No course available.</a></center>";
+          }
+        while ($row = $result->fetch_assoc()): 
                 $original_price = $row["course_price"];
                 $discount_rate = $row["course_discount"];
             ?>
