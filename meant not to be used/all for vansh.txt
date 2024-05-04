@@ -1,0 +1,6 @@
+7. Student and Instructor list has not functionality to delete and update details of them.
+8. In dashboard when adding course and chapter there is no alert message using session.
+9. Search button is not working.
+10. Instructor should withdraw the earnings.
+11. Course Demo Lecture Upload Edit.
+FFmpeg: https://chat.openai.com/share/9e315f03-e728-4a37-b305-1d0334274d1b
