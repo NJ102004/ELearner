@@ -3,6 +3,7 @@
 require 'includes/scripts/connection.php';  
 
 $course = 5;
+$user_id = 4;
 
 // Function to calculate weighted average
 function calculateWeightedAverage($ratings) {
@@ -90,7 +91,7 @@ if (mysqli_num_rows($result) > 0) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Star Rating</title>
 <style>
-    .rating {
+      .rating {
         display: flex;
         flex-direction: row-reverse;
     }
@@ -123,17 +124,33 @@ if (mysqli_num_rows($result) > 0) {
 </head>
 <body>
 
-<form method="post" action="">
-    <div class="rating">
-        <input type="radio" name="rating" id="star5" value="5"><label for="star5"></label>
-        <input type="radio" name="rating" id="star4" value="4"><label for="star4"></label>
-        <input type="radio" name="rating" id="star3" value="3"><label for="star3"></label>
-        <input type="radio" name="rating" id="star2" value="2"><label for="star2"></label>
-        <input type="radio" name="rating" id="star1" value="1"><label for="star1"></label>
-    </div>
 
-    <input type="submit" value="Submit Rating">
+<?php 
+
+$selectSQL = "SELECT `course_rating` FROM `purchased_course_master` WHERE `course_id` = $course AND `user_id` = $user_id";
+$selectRes = mysqli_query($conn, $selectSQL);
+$selectRow = mysqli_fetch_assoc($selectRes);
+?>
+
+<form id="ratingForm" method="post" action="">
+    <div class="rating">
+        <input <?php echo ($selectRow["course_rating"] == 1)? "checked": "";?> type="radio" name="rating" id="star5" value="5"><label for="star5"></label>
+        <input <?php echo ($selectRow["course_rating"] == 2)? "checked": "";?> type="radio" name="rating" id="star4" value="4"><label for="star4"></label>
+        <input <?php echo ($selectRow["course_rating"] == 3)? "checked": "";?> type="radio" name="rating" id="star3" value="3"><label for="star3"></label>
+        <input <?php echo ($selectRow["course_rating"] == 4)? "checked": "";?> type="radio" name="rating" id="star2" value="2"><label for="star2"></label>
+        <input <?php echo ($selectRow["course_rating"] == 5)? "checked": "";?> type="radio" name="rating" id="star1" value="1"><label for="star1"></label>
+    </div>
 </form>
+<script>
+    const ratingInputs = document.querySelectorAll('input[name="rating"]');
+    const ratingForm = document.getElementById('ratingForm');
+
+    ratingInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            ratingForm.submit();
+        });
+    });
+</script>
 
 </body>
 </html>
