@@ -121,7 +121,7 @@ ini_set('display_errors', 1);
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>Option 1</label>
-                                    <input type="text">
+                                    <input placeholder="Correct Answer" type="text">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
@@ -152,7 +152,7 @@ ini_set('display_errors', 1);
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>Option 1</label>
-                                    <input type="text">
+                                    <input placeholder="Correct Answer" type="text">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-sm-6 col-12">
