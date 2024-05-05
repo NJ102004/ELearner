@@ -216,10 +216,21 @@
                         $courseRating = calculateWeightedAverage($ratings);
 
                         $totalRating =  number_format($courseRating, 2);
+
+                        if (($totalRating > 0) && ($totalRating < 5)) {
+                            $totalRating = 1;
+                            $parts = explode('.', strval($totalRating));
+                            $totalStars = $parts[0];
+                        }
+
                     } 
+                    else{
+                        $totalRating = 0;
+                        $totalStars = 0;
+                    }
                     ?>
 
-                    <h3 style="font-size: 1.6rem; color: rgb(255, 187, 0);"><?php echo ($totalRating > 0)? ($totalRating > 5)? "5.0": $totalRating : "0";?> <span style="color: rgb(255, 187, 0); font-size: 1.7rem;">
+                    <h3 style="font-size: 1.6rem; color: rgb(255, 187, 0);"><?php echo ($totalRating > 0)? ($totalRating > 5)? "5.0": $totalRating : "";?> <span style="color: rgb(255, 187, 0); font-size: 1.7rem;">
                         <?php
                             if( $totalRating == 0){
                                 echo "No rating yet!";
