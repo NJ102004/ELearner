@@ -16,6 +16,16 @@ ini_set('display_errors', 1);
     }else{
         header("Location: ../sign-in.php");
     }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST["course_quiz_name"]) && isset($_POST["course_quiz_total_question"]) && isset($_POST["course_quiz_total_marks"]))) {
+        $quiz_for_course = $_GET["course"];
+        $quiz_name = $_POST["course_quiz_name"];
+        $quiz_total_questions = $_POST["course_quiz_total_question"];
+        $quiz_total_marks = $_POST["course_quiz_total_marks"];
+        
+        $sqlToInsert = "INSERT INTO `quiz_master` (quiz_for_course, quiz_name, quiz_total_marks, quiz_total_questions, quiz_added_by) VALUES()";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +39,7 @@ ini_set('display_errors', 1);
         content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Add brand</title>
+    <title>Add/Manage Quiz</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -104,38 +114,40 @@ ini_set('display_errors', 1);
             <div class="content">
                 <div class="page-header">
                     <div class="page-title">
-                        <h4>ADD Quiz</h4>
-                        <!-- <h6>Create new Brand</h6> -->
+                        <h4>Add/Manage Quiz</h4>
+                        <h6 style="color:red">Important: Once quiz is created you can not modify it. <b style="color: orange" title="Modification undermines assessment integrity and diminishes the reliability of learning outcomes.">Understand Why?</b></h6>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-12 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Quiz Name</label>
-                                    <input type="text">
+                        <form action="" method="post">
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Quiz Name</label>
+                                        <input type="text" name="course_quiz_name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>How many questions do you want to add?</label>
+                                        <input placeholder="Allowed min=10 and max=50." step="5" type="number" name="course_quiz_total_question" min="10" max="50" class="form-control"  pattern="[0-9]+" title="Please enter a number between 0 and 100" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Marks per question</label>
+                                        <input placeholder="Allowed min=2 and max=10."  step="2" type="number" name="course_quiz_total_marks" min="2" max="10" class="form-control"  pattern="[0-9]+" title="Please enter a number between 0 and 100" required>
+    
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <input value="Submit" name="submit" type="submit" class="btn btn-submit me-2">
+                                    <a href="<?php echo isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'javascript:history.go(-1)'; ?>" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>How many questions do you want to add?</label>
-                                    <input placeholder="Allowed min=10 and max=50." step="5" type="number" name="course_discount" min="10" max="50" class="form-control"  pattern="[0-9]+" title="Please enter a number between 0 and 100" required>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Marks per question</label>
-                                    <input placeholder="Allowed min=2 and max=10."  step="2" type="number" name="course_discount" min="2" max="10" class="form-control"  pattern="[0-9]+" title="Please enter a number between 0 and 100" required>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <a href="quiz-add.php" class="btn btn-submit me-2">Submit</a>
-                                <a href="<?php echo isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'javascript:history.go(-1)'; ?>" class="btn btn-cancel">Cancel</a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 

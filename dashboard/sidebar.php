@@ -41,4 +41,4 @@ $currentPage = basename($currentURL);
                     </ul>
                 </div>
             </div>
-        </div>
+</div>

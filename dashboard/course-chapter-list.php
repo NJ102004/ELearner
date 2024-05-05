@@ -159,8 +159,8 @@
                         ?>
                     </div>
                     <div class="page-btn d-flex" style="gap:15px">
-                        <a href="quiz-add-information.php" class="btn btn-added">
-                            <img src="assets/img/icons/plus.svg" alt="img">Add Quiz
+                        <a href="quiz-add-information.php?course=<?php echo $_GET["course"];?>" class="btn btn-added">
+                            <img src="assets/img/icons/plus.svg" alt="img">Add / Manage Quiz
                         </a>
                         <a href="course-add-chapter.php?course=<?php echo $courseIDforCHAPTER;?>" class="btn btn-added">
                             <img src="assets/img/icons/plus.svg" alt="img">Add New Chapter

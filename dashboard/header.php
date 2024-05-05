@@ -16,7 +16,7 @@
             </div>
         </div>
         <hr class="m-0">
-        <a class="dropdown-item" href="../myaccount.php"> <i class="me-2" data-feather="user"></i> Student Dashboard</a>
+        <a class="dropdown-item" href="../myaccount.php"> <i class="me-2" data-feather="user"></i>Student Dashboard</a>
         <!-- <a class="dropdown-item" href="generalsettings.php"><i class="me-2"
                 data-feather="settings"></i>Settings</a> -->
         <hr class="m-0">
@@ -25,3 +25,15 @@
 </div>
 </li>
 </ul>
+
+<div class="dropdown mobile-user-menu">
+    <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+        aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+    <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="../myaccount.php">Student Dashboard</a>
+        <!-- <a class="dropdown-item" href="generalsettings.php">Settings</a> -->
+        <a class="dropdown-item logout pb-0" href="../logout.php">Logout</a>
+    </div>
+</div>
+
+</div>

@@ -57,17 +57,33 @@
                                 $rowToSelectCourseDetails = mysqli_fetch_assoc($resultToSelectCourseDetails);
                                 if ($rowToSelectCourseDetails["course_image"] != "assets/img/notfound.png" && file_exists("../" . $rowToSelectCourseDetails["course_image"])) {
                                     if(unlink("../" . $rowToSelectCourseDetails["course_image"])){
-                                        unlink("../" . $rowToSelectCourseDetails["course_demo_lecture"]);
-                                        $sqlToDeleteCourse = "DELETE FROM `course_master` WHERE course_id = $courseId";
-                                        $resultToDeleteCourse = mysqli_query($conn, $sqlToDeleteCourse);
-                                        if($resultToDeleteCourse){
-                                            $_SESSION["educat_success_message"] = "Course deleted successfully.";
+                                        if (unlink("../" . $rowToSelectCourseDetails["course_demo_lecture"])) {
+                                            $sqlToDeleteCourse = "DELETE FROM `course_master` WHERE course_id = $courseId";
+                                            $resultToDeleteCourse = mysqli_query($conn, $sqlToDeleteCourse);
+                                            if($resultToDeleteCourse){
+                                                $_SESSION["educat_success_message"] = "Course deleted successfully.";
+                                                header("Location: course-list.php");
+                                            }else{
+                                                $_SESSION["educat_error_message"] = "Course is not deleted, Error while deleting course.";
+                                                header("Location: course-list.php");
+                                            }
+                                        }else{
+                                            $_SESSION["educat_error_message"] = "Course is not deleted, Error while deleting featured video.";
                                             header("Location: course-list.php");
                                         }
+                                    }else{
+                                        $_SESSION["educat_error_message"] = "Course is not deleted, Error while deleting featured image.";
+                                        header("Location: course-list.php");
                                     }
                                 }
                             }
+                        }else{
+                            $_SESSION["educat_error_message"] = "Course is not deleted, Error while deleting chapters.";
+                            header("Location: course-list.php");
                         }
+                    }else{
+                        $_SESSION["educat_error_message"] = "Course is not deleted, Error while deleting chapter's videos.";
+                        header("Location: course-list.php");
                     }
                 }else{
                     $sqlToDeleteChapter = "DELETE FROM course_chapter_list WHERE course_id = $courseId";
