@@ -16,6 +16,9 @@ ini_set('display_errors', 1);
     }else{
         header("Location: ../sign-in.php");
     }
+
+    $course = $_GET["course"];
+    $quiz = $_GET["quiz"];
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +32,7 @@ ini_set('display_errors', 1);
         content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Add brand</title>
+    <title>Add Quiz</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 
@@ -104,80 +107,69 @@ ini_set('display_errors', 1);
             <div class="content">
                 <div class="page-header">
                     <div class="page-title">
-                        <h4>ADD Quiz</h4>
+                        <h4>Add Quiz</h4>
                         <!-- <h6>Create new Brand</h6> -->
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-12 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Question 1</label>
-                                    <input type="text">
+                        <form action="" method="post">
+                            <div class="row">
+                                <?php 
+                                    $sqlForInfo = "SELECT * FROM quiz_master WHERE quiz_for_course = $course AND quiz_id = $quiz";
+                                    $resForInfo = mysqli_query($conn, $sqlForInfo);
+                                    if($resForInfo){
+                                        if(mysqli_num_rows($resForInfo) > 0){
+                                            $rowForInfo = mysqli_fetch_assoc($resForInfo);
+                                            for($i=0; $i < $rowForInfo["quiz_total_questions"]; $i++){
+                                            ?>
+                                                    <div class="col-lg-12 col-sm-6 col-12">
+                                                        <div class="form-group">
+                                                            <label><b>Question <?php echo $i+1;?></b></label>
+                                                            <input placeholder="Type question <?php echo $i+1;?> here." type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-6 col-12">
+                                                        <div class="form-group">
+                                                            <label>Option 1</label>
+                                                            <input placeholder="Correct answer only" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-6 col-12">
+                                                        <div class="form-group">
+                                                            <label>Option 2</label>
+                                                            <input placeholder="Incorrect answer only" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-6 col-12">
+                                                        <div class="form-group">
+                                                            <label>Option 3</label>
+                                                            <input placeholder="Incorrect answer only" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-6 col-12">
+                                                        <div class="form-group">
+                                                            <label>Option 4</label>
+                                                            <input placeholder="Incorrect answer only" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                        <?php
+                                            }
+                                        }else{
+                                            $_SESSION['educat_error_message'] = "Quiz information not found.";
+                                            header("Location: quiz-add-information?course=" . $course);
+                                        }
+                                    }
+                                ?>
+                                
+                                <div class="col-lg-12">
+                                    <a href="quiz-add.php" class="btn btn-submit me-2">Submit</a>
+                                    <a href="brandlist.html" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Option 1</label>
-                                    <input placeholder="Correct Answer" type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Option 2</label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Option 3</label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Option 4</label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="col-lg-12 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Question 2</label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Option 1</label>
-                                    <input placeholder="Correct Answer" type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Option 2</label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Option 3</label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label>Option 4</label>
-                                    <input type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <a href="quiz-add.php" class="btn btn-submit me-2">Submit</a>
-                                <a href="brandlist.html" class="btn btn-cancel">Cancel</a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
