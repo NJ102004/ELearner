@@ -26,7 +26,12 @@ ini_set('display_errors', 1);
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Loop through the posted form data to extract questions and options
         $quiz_id = $_GET["quiz"];
-        $question_count = $_POST['question_count']; // Add a hidden input field with the count of questions
+        
+        $select_data = "SELECT * FROM quiz_master WHERE quiz_id = $quiz_id AND quiz_for_course = $course";
+        $res_data = mysqli_query($conn, $select_data);
+        $row_data = mysqli_fetch_assoc($res_data);
+
+        $question_count = $row_data['quiz_total_questions'];
 
         // Prepare and execute the INSERT query for each question
         for ($i = 1; $i <= $question_count; $i++) {
@@ -35,11 +40,11 @@ ini_set('display_errors', 1);
             $option_two = mysqli_real_escape_string($conn, $_POST["option_2_question_$i"]);
             $option_three = mysqli_real_escape_string($conn, $_POST["option_3_question_$i"]);
             $option_four = mysqli_real_escape_string($conn, $_POST["option_4_question_$i"]);
-            $true_option = mysqli_real_escape_string($conn, $_POST["true_option_question_$i"]);
+            $question_marks = $row_data['quiz_total_marks'];
 
             // Insert the question and options into the database
-            $insert_query = "INSERT INTO quiz_question_master (question, option_one, option_two, option_three, option_four, quiz_true_option, quiz_id, quiz_question_marks) 
-                            VALUES ('$question', '$option_one', '$option_two', '$option_three', '$option_four', '$true_option', $quiz_id, 1)"; // Assuming each question has 1 mark
+            $insert_query = "INSERT INTO quiz_question_master (question, option_one, option_two, option_three, option_four, quiz_id, quiz_question_marks) 
+                            VALUES ('$question', '$option_one', '$option_two', '$option_three', '$option_four', $quiz_id, $question_marks)"; // Assuming each question has 1 mark
             $res_insert = mysqli_query($conn, $insert_query);
         }
 
@@ -284,7 +289,7 @@ ini_set('display_errors', 1);
                                 
                                 <div class="col-lg-12">
                                     <input type="submit" class="btn btn-submit me-2" value="Submit">
-                                    <a href="brandlist.html" class="btn btn-cancel">Cancel</a>
+                                    <a href="<?php echo 'quiz-add-information.php?course=' . $course?>" class="btn btn-cancel">Cancel</a>
                                 </div>
                             </div>
                         </form>
