@@ -297,11 +297,11 @@
             <div class="accesson">
                 <p><img src="./assets/img/mobile.png" alt="" height="25px" width="25px">Access on all devices.</p>
                 <p><img src="./assets/img/assignment.png" alt="" height="25px" width="25px">Assignments</p>
-                <p><img src="./assets/img/certificate.png" alt="" height="25px" width="25px">Certificate of completion</p>
+                <p><img src="./assets/img/download.png" alt="" height="25px" width="25px">Downloadable Resources</p>
                 <!-- <p><img src="./assets/img/playvideo.png" alt="" height="25px" width="25px"><?php echo $rowForData["course_videos"]?> total video lectures</p> -->
                 <p><img src="./assets/img/playvideo.png" alt="" height="25px" width="25px">Downloadable Videos</p>
                 <p><img src="./assets/img/artical.png" alt="" height="25px" width="25px">Quizes</p>
-                <p><img src="./assets/img/download.png" alt="" height="25px" width="25px">Downloadable resources</p>
+                <p><img src="./assets/img/certificate.png" alt="" height="25px" width="25px">Certificate of completion</p>
             </div>
         </div>
         <div class="learn">
