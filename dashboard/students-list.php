@@ -246,7 +246,7 @@
                                         <?php echo "<td>" . $row["user_email"] . "</td>"; ?>
                                         <td>10</td>
                                         <td>
-                                            <a href="javascript:void(0);">
+                                            <a href="deletestudent.php?id=<?php echo $row["user_id"];    ?>">
                                                 <img src="assets/img/icons/delete.svg" alt="img">
                                             </a>  
                                         </td>

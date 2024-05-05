@@ -198,7 +198,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <a class="me-3 confirm-text" href="javascript:void(0);">
+                                            <a class="" href="deleteinstructor.php?id=<?php echo $row['user_id']?>">
                                                 <img src="assets/img/icons/delete.svg" alt="img">
                                             </a>
                                         </td>
