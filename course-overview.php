@@ -178,26 +178,63 @@
                     ?>
 
                     <?php
-                    $sqlRating = "SELECT * FROM course_rating WHERE course = $courseID";
-                    $resRating = mysqli_query($conn, $sqlRating);
-                    if($resRating){
-                        
+
+                    // Function to calculate weighted average
+                    function calculateWeightedAverage($ratings) {
+                        $totalWeight = 0;
+                        $weightedSum = 0;
+
+                        foreach ($ratings as $key => $value) {
+                            $weight = $key + 1; // Weight is the star rating itself (1 for 1 star, 2 for 2 stars, etc.)
+                            $totalWeight += $weight;
+                            $weightedSum += $weight * $value;
+                        }
+
+                        if ($totalWeight == 0) {
+                            return 0; // Return 0 if there are no ratings
+                        }
+
+                        return $weightedSum / $totalWeight;
                     }
+
+                    // Query to fetch ratings and number of people for each star rating
+                    $sql = "SELECT * FROM course_rating WHERE course = $courseID";
+                    $result = mysqli_query($conn, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        $totalRatings = mysqli_fetch_assoc($result);
+                        
+                        // Calculate weighted average
+                        $ratings = array(
+                            $totalRatings['rating_1'],
+                            $totalRatings['rating_2'],
+                            $totalRatings['rating_3'],
+                            $totalRatings['rating_4'],
+                            $totalRatings['rating_5']
+                        );
+
+                        $courseRating = calculateWeightedAverage($ratings);
+
+                        $totalRating =  number_format($courseRating, 2);
+                    } 
                     ?>
 
-                    <h3 style="font-size: 1.6rem; color: rgb(255, 187, 0);"><?php echo ($rowForData["course_rating"] > 0)? $rowForData["course_rating"]: "0";?>.0 <span style="color: rgb(255, 187, 0); font-size: 1.7rem;">
+                    <h3 style="font-size: 1.6rem; color: rgb(255, 187, 0);"><?php echo ($totalRating > 0)? ($totalRating > 5)? "5.0": $totalRating : "0";?> <span style="color: rgb(255, 187, 0); font-size: 1.7rem;">
                         <?php
-                            if($rowForData["course_rating"] == 0){
+                            if( $totalRating == 0){
                                 echo "No rating yet!";
                             }
                             else{
-                                for ($i=0; $i < $rowForData["course_rating"]; $i++) { 
+                                if($totalRating > 5){
+                                    $totalStars = 5;
+                                }
+                                for ($i=0; $i <  $totalStars; $i++) { 
                                     echo "&starf;";
                                 }
                             }
                         ?>
                 </span></h3>
-                    <p><?php echo $rowForData["course_purchases"];?> students purchased this course</p>
+                    <!-- <p><?php echo $rowForData["course_purchases"];?> students purchased this course</p> -->
                 </div>
                 <h4>Created by <?php
                     $instructorID = $rowForData["course_instructor"];
