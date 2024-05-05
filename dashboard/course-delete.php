@@ -26,6 +26,7 @@
     }
     
 
+    // To delete whole course.
     if (isset($_GET['course']) && !isset($_GET['chapter']) && !isset($_GET['video'])) {
         $courseChapterSql = "SELECT course_chapter_id FROM `course_chapter_list` WHERE `course_id`  = $courseId";
         $courseChapterResult = mysqli_query($conn,$courseChapterSql);
@@ -112,6 +113,7 @@
         }
     }
 
+    // To delete chapters.
     if(isset($_GET['course']) && isset($_GET['chapter']) && !isset($_GET['video'])){
         $courseID = $_GET['course'];
         $chapterID = $_GET['chapter'];
@@ -164,6 +166,8 @@
         }
     }
 
+
+    // To delete videos.
     if(isset($_GET['course']) && isset($_GET['chapter']) && isset($_GET['video'])){
         $courseID = $_GET['course'];
         $chapterID = $_GET['chapter'];

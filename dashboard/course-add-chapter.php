@@ -22,28 +22,42 @@
         // Get course ID from the URL
         $course = mysqli_real_escape_string($conn, $_GET['course']);
 
-        // Insert into course_chapter_list table
-        $insertChapterQuery = "INSERT INTO course_chapter_list (course_chapter_name, course_id, course_chapter_description) VALUES ('$courseChapterName', $course, '$course_chapter_description')";
-        $insertChapterResult = mysqli_query($conn, $insertChapterQuery);
+        // Check if chapter with the same name already exists for the given course
+        $checkChapterQuery = "SELECT * FROM course_chapter_list WHERE course_id = $course AND course_chapter_name = '$courseChapterName'";
+        $checkChapterResult = mysqli_query($conn, $checkChapterQuery);
 
-        if ($insertChapterResult) {
-            // Update course_chapters column in course_master table
-            $updateCourseQuery = "UPDATE course_master SET course_chapters = course_chapters + 1 WHERE course_id = $course";
-            $updateCourseResult = mysqli_query($conn, $updateCourseQuery);
-
-            if ($updateCourseResult) {
-                // Chapter and course update successful, you can redirect or display a success message here
-                $page_url = "course-chapter-list.php?course=".  $_GET['course'];
-                header("Location: $page_url");
-                exit();
-            } else {
-                // Handle update failure, you may want to roll back the chapter insertion as well
-                echo "Error updating course chapters.";
-            }
+        if(mysqli_num_rows($checkChapterResult) > 0) {
+            $_SESSION["educat_error_message"] =  "Chapter with the same name already exists for this course.";
+            header("Location: course-chapter-list.php?course=" . $_GET["course"]);
         } else {
-            // Handle chapter insertion failure
-            echo "Error inserting chapter.";
+            // Insert into course_chapter_list table
+            $insertChapterQuery = "INSERT INTO course_chapter_list (course_chapter_name, course_id, course_chapter_description) VALUES ('$courseChapterName', $course, '$course_chapter_description')";
+            $insertChapterResult = mysqli_query($conn, $insertChapterQuery);
+    
+            if ($insertChapterResult) {
+                // Update course_chapters column in course_master table
+                $updateCourseQuery = "UPDATE course_master SET course_chapters = course_chapters + 1 WHERE course_id = $course";
+                $updateCourseResult = mysqli_query($conn, $updateCourseQuery);
+    
+                if ($updateCourseResult) {
+                    // Chapter and course update successful, you can redirect or display a success message here
+                    $page_url = "course-chapter-list.php?course=".  $_GET['course'];
+                    header("Location: $page_url");
+                    $_SESSION["educat_success_message"] =  "Chapter Added.";
+                    header("Location: course-chapter-list.php?course=" . $_GET["course"]);
+                    exit();
+                } else {
+                    // Handle update failure, you may want to roll back the chapter insertion as well
+                    $_SESSION["educat_error_message"] =  "Error updating course chapters.";
+                    header("Location: course-chapter-list.php?course=" . $_GET["course"]);
+                }
+            } else {
+                // Handle chapter insertion failure
+                $_SESSION["educat_error_message"] =  "Error inserting chapter.";
+                header("Location: course-chapter-list.php?course=" . $_GET["course"]);
+            }
         }
+
     }
 
 ?>

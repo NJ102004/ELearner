@@ -214,10 +214,15 @@ if(isset($_SESSION['educat_logedin_user_id']) && (trim ($_SESSION['educat_logedi
                         <p>By the number</p>
                     </div>
                     <div class="sc">
+                        <p><b>Student(s):</b>&nbsp<?php echo $rowdata2['row_count'];?></p>
+                        <p><b>Student:</b><?php echo $rowdata2['row_count'];?></p>
                         <p><b>Student:</b><?php echo $rowdata2['row_count'];?></p>
                         <p><b>Language:</b><?php echo $rowdataforLanguage['language_name'];?></p>
                     </div>
                     <div class="t">
+                        <p><b>Lectures:</b><?php echo $rowdata['course_chapters'];?></p>
+                        <p><b>Lectures:</b><?php echo $rowdata['course_chapters'];?></p>
+                        <p><b>Lectures:</b><?php echo $rowdata['course_chapters'];?></p>
                         <p><b>Lectures:</b><?php echo $rowdata['course_chapters'];?></p>
                     </div>
                 </div>

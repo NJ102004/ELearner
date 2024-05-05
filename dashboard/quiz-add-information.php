@@ -17,13 +17,20 @@ ini_set('display_errors', 1);
         header("Location: ../sign-in.php");
     }
 
+    
+    $quiz_for_course = $_GET["course"];
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST["course_quiz_name"]) && isset($_POST["course_quiz_total_question"]) && isset($_POST["course_quiz_total_marks"]))) {
-        $quiz_for_course = $_GET["course"];
         $quiz_name = $_POST["course_quiz_name"];
         $quiz_total_questions = $_POST["course_quiz_total_question"];
         $quiz_total_marks = $_POST["course_quiz_total_marks"];
         
-        $sqlToInsert = "INSERT INTO `quiz_master` (quiz_for_course, quiz_name, quiz_total_marks, quiz_total_questions, quiz_added_by) VALUES()";
+        $sqlToInsert = "INSERT INTO `quiz_master` (quiz_for_course, quiz_name, quiz_total_marks, quiz_total_questions, quiz_added_by) VALUES($quiz_for_course, '$quiz_name', $quiz_total_marks, $quiz_total_questions, $user_id)";
+        $resToInsert = mysqli_query($conn, $sqlToInsert);
+        if($resToInsert){
+            $_SESSION["educat_success_message"] = "Quiz added.";
+            header("Location: quiz-add-information.php?course=" . $quiz_for_course);
+        }
     }
 
 ?>

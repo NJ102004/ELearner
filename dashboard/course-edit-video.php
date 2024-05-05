@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"]) && isset($_G
         $chapter = mysqli_real_escape_string($conn, $_GET['chapter']);
 
         $targetDirectory = "course/uploads/videos/";
-        $newFileName = $userdata["user_name"] . uniqid() . "_" . basename($_FILES["course_chapter_video_path"]["name"]);
+        $newFileName =  $userdata["user_name"] . "_" . $chapterVideoTitle . "_". uniqid() . "_" . basename($_FILES["course_chapter_video_path"]["name"]);
         $targetFilePath = $targetDirectory . $newFileName;
         $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 

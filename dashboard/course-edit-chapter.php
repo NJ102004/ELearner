@@ -26,7 +26,7 @@
         $course = mysqli_real_escape_string($conn, $_GET['course']);
 
         // Insert into course_chapter_list table
-        $insertChapterQuery = "UPDATE `course_chapter_list` SET `course_chapter_name`= '$courseChapterName', `course_chapter_description`='$course_chapter_description'";
+        $insertChapterQuery = "UPDATE `course_chapter_list` SET `course_chapter_name`= '$courseChapterName', `course_chapter_description`='$course_chapter_description' WHERE `course_chapter_id` = $chapter AND `course_id` = $course";
         $insertChapterResult = mysqli_query($conn, $insertChapterQuery);
 
         if ($insertChapterResult) {

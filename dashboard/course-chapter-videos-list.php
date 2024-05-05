@@ -160,10 +160,12 @@
                             }
                         ?>
                     </div>
-                    <div class="page-btn">
+                    <div class="page-btn d-flex" style="gap:15px">
                         <a href="course-add-video.php?course=<?php echo $courseIDforCHAPTER;?>&chapter=<?php echo$chapterIDforVIDEO;?>" class="btn btn-added">
                             <img src="assets/img/icons/plus.svg" alt="img">Add New Video
                         </a>
+
+                        <a href="course-chapter-list.php?course=<?php echo $_GET["course"];?>" class="btn btn-cancel">Go Back</a>
                     </div>
                     <!-- <div class="page-btn">
                         <a href="course-chapter-list.php?course=<?php echo $_GET["course"];?>" class="btn btn-cancel">Go Back</a>
