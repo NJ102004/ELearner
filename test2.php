@@ -39,7 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["rating"])) {
                 $sql = "UPDATE course_rating SET rating_$rating = rating_$rating + 1, number_of_total_people = number_of_total_people + 1 WHERE course = $course";
                 
                 if (mysqli_query($conn, $sql)) {
-                    echo "Rating submitted successfully.";
+                    $updatePCMratingSQL = "UPDATE purchased_course_master SET course_rating = $rating WHERE course_id = $course AND user_id = $user_id";
+                    $updatePCMratingResult = mysqli_query($conn, $updatePCMratingSQL);
+                    if($updatePCMratingResult){
+                        echo "Rating submitted successfully.";
+                    }else{
+                        echo "Error updating rating: " . mysqli_error($conn);
+                    }
                 } else {
                     echo "Error updating rating: " . mysqli_error($conn);
                 }
@@ -49,7 +55,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["rating"])) {
             $sql = "UPDATE course_rating SET rating_$rating = rating_$rating + 1, number_of_total_people = number_of_total_people + 1 WHERE course = $course";
             
             if (mysqli_query($conn, $sql)) {
-                echo "Rating submitted successfully.";
+                $updatePCMratingSQL = "UPDATE purchased_course_master SET course_rating = $rating WHERE course_id = $course AND user_id = $user_id";
+                $updatePCMratingResult = mysqli_query($conn, $updatePCMratingSQL);
+                if($updatePCMratingResult){
+                    echo "Rating submitted successfully.";
+                }else{
+                    echo "Error updating rating: " . mysqli_error($conn);
+                }
             } else {
                 echo "Error updating rating: " . mysqli_error($conn);
             }
@@ -134,12 +146,12 @@ $selectRow = mysqli_fetch_assoc($selectRes);
 
 <form id="ratingForm" method="post" action="">
     <div class="rating">
-        <input <?php echo ($selectRow["course_rating"] == 1)? "checked": "";?> type="radio" name="rating" id="star5" value="5"><label for="star5"></label>
-        <input <?php echo ($selectRow["course_rating"] == 2)? "checked": "";?> type="radio" name="rating" id="star4" value="4"><label for="star4"></label>
-        <input <?php echo ($selectRow["course_rating"] == 3)? "checked": "";?> type="radio" name="rating" id="star3" value="3"><label for="star3"></label>
-        <input <?php echo ($selectRow["course_rating"] == 4)? "checked": "";?> type="radio" name="rating" id="star2" value="2"><label for="star2"></label>
+        <input <?php echo (($selectRow["course_rating"] == 1) || ($selectRow["course_rating"] == 2) || ($selectRow["course_rating"] == 3) || ($selectRow["course_rating"] == 4)  || ($selectRow["course_rating"] == 5))? "checked": "";?> type="radio" name="rating" id="star5" value="5"><label for="star5"></label>
+        <input <?php echo (($selectRow["course_rating"] == 2) || ($selectRow["course_rating"] == 3) || ($selectRow["course_rating"] == 4)  || ($selectRow["course_rating"] == 5))? "checked": "";?> type="radio" name="rating" id="star4" value="4"><label for="star4"></label>
+        <input <?php echo (($selectRow["course_rating"] == 3) || ($selectRow["course_rating"] == 4) || ($selectRow["course_rating"] == 5))? "checked": "";?> type="radio" name="rating" id="star3" value="3"><label for="star3"></label>
+        <input <?php echo (($selectRow["course_rating"] == 4) || ($selectRow["course_rating"] == 5))? "checked": "";?> type="radio" name="rating" id="star2" value="2"><label for="star2"></label>
         <input <?php echo ($selectRow["course_rating"] == 5)? "checked": "";?> type="radio" name="rating" id="star1" value="1"><label for="star1"></label>
-    </div>
+    </div>s
 </form>
 <script>
     const ratingInputs = document.querySelectorAll('input[name="rating"]');
