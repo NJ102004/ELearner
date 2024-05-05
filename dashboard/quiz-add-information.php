@@ -134,6 +134,20 @@ ini_set('display_errors', 1);
                     <div class="page-title">
                         <h4>Add/Manage Quiz</h4>
                         <h6 style="color:red">Important: Once quiz is created you can not modify and delete it. <b style="color: orange" title="Modification undermines assessment integrity and diminishes the reliability of learning outcomes.">Understand Why?</b></h6>
+                        <?php
+                            if(isset($_SESSION["educat_error_message"])){
+                                ?>
+                                <a style="color: red;"><?php echo $_SESSION["educat_error_message"]?></a>
+                                <?php
+                                unset($_SESSION["educat_error_message"]);
+                            }
+                            if(isset($_SESSION["educat_success_message"])){
+                                ?>
+                                <a style="color: green;"><?php echo $_SESSION["educat_success_message"]?></a>
+                                <?php
+                                unset($_SESSION["educat_success_message"]);
+                            }
+                        ?>
                     </div>
                 </div>
 
