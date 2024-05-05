@@ -1,6 +1,6 @@
 <?php
 // Visit https://mpdf.github.io/  for more help
-require_once __DIR__.'/includes/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 require 'includes/scripts/connection.php';  
 session_start();
 if(isset($_SESSION['educat_logedin_user_id']) && (trim ($_SESSION['educat_logedin_user_id']) !== '')){
@@ -12,6 +12,10 @@ if(isset($_SESSION['educat_logedin_user_id']) && (trim ($_SESSION['educat_logedi
 }else{
     header("Location: sign-in.php");
 }
+
+
+$today = date("Y-m-d");
+
 
     $id=$_GET['id'];
     $sql = "SELECT * FROM course_master WHERE course_id = $id";
@@ -52,11 +56,11 @@ $html = '
         </div>
         <div class="botcer">
             <h1 style="font-size: 2rem; font-weight: bolder; color: black;">'.$userdata['user_name'].'</h1><br>
-            <p>Date&nbsp;&nbsp;<b>May 29,2023</b></p>
-            <p>Length&nbsp;&nbsp;<b>'.$rowdata['course_hours'].' total hours</b></p>
-        </div>
-    </div>';
-$mpdf = new \Mpdf\Mpdf();
+            <p>Date&nbsp;&nbsp;<b>'.$today.'</b></p>
+            </div>
+            </div>';
+            $mpdf = new \Mpdf\Mpdf();
+            // <p>Length&nbsp;&nbsp;<b>'.$rowdata['course_hours'].' total hours</b></p>
 
 $stylesheet = file_get_contents('pdf.css');
 
