@@ -28,8 +28,12 @@ ini_set('display_errors', 1);
         $sqlToInsert = "INSERT INTO `quiz_master` (quiz_for_course, quiz_name, quiz_total_marks, quiz_total_questions, quiz_added_by) VALUES($quiz_for_course, '$quiz_name', $quiz_total_marks, $quiz_total_questions, $user_id)";
         $resToInsert = mysqli_query($conn, $sqlToInsert);
         if($resToInsert){
+            $selectAgain = "SELECT quiz_id FROM quiz_master WHERE quiz_for_course = $quiz_for_course AND quiz_added_by = $user_id";
+            $resAgain = mysqli_query($conn, $selectAgain);
+            $rowAgain = mysqli_fetch_assoc($resAgain);
+            $quizID = $rowAgain["quiz_id"];
             $_SESSION["educat_success_message"] = "Quiz added.";
-            header("Location: quiz-add-information.php?course=" . $quiz_for_course);
+            header("Location: quiz-add.php?course=" . $quiz_for_course . "&quiz=" . $quizID);
         }
     }
 
@@ -121,21 +125,31 @@ ini_set('display_errors', 1);
 
 
 <?php
-            include("sidebar.php");
-        ?>
+    include("sidebar.php");
+?>
 
         <div class="page-wrapper">
             <div class="content">
                 <div class="page-header">
                     <div class="page-title">
                         <h4>Add/Manage Quiz</h4>
-                        <h6 style="color:red">Important: Once quiz is created you can not modify it. <b style="color: orange" title="Modification undermines assessment integrity and diminishes the reliability of learning outcomes.">Understand Why?</b></h6>
+                        <h6 style="color:red">Important: Once quiz is created you can not modify and delete it. <b style="color: orange" title="Modification undermines assessment integrity and diminishes the reliability of learning outcomes.">Understand Why?</b></h6>
                     </div>
                 </div>
 
+
+                <?php
+                
+                $sqlSelectQuiz = "SELECT * FROM quiz_master WHERE quiz_for_course = $quiz_for_course AND quiz_added_by = $user_id";
+                $resultSelectQuiz = mysqli_query($conn, $sqlSelectQuiz);
+                if(($resultSelectQuiz) && (mysqli_num_rows($resultSelectQuiz) > 0)){
+                    $rowSelectQuiz = mysqli_fetch_assoc($resultSelectQuiz);
+                }
+                ?>
+
                 <div class="card">
                     <div class="card-body">
-                        <form action="" method="post" style="margin: 20px;">
+                        <form action="" method="post" style="margin: 20px; <?php echo (mysqli_num_rows($resultSelectQuiz) > 0)? "display:none;":"";?>">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6 col-12">
                                     <div class="form-group">
@@ -162,93 +176,40 @@ ini_set('display_errors', 1);
                                 </div>
                             </div>
                         </form>
-                        <hr>
-                        <div class="table-responsive">
+                        <div class="table-responsive" style="<?php echo (mysqli_num_rows($resultSelectQuiz) == 0)? "display:none;":"";?>">
                             <table class="table datanew">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            <label class="checkboxs">
-                                                <input type="checkbox" id="select-all">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </th>
-                                        <th>Image</th>
-                                        <th>Brand Name</th>
-                                        <th>Brand Description</th>
-                                        <th>Action</th>
+                                        <th>Quiz Name</th>
+                                        <th>Question(s)</th>
+                                        <th>Mark(s)</th>
+                                        <?php
+                                            if($rowSelectQuiz["quiz_questions_marked"] == 0){
+                                                ?>
+                                                <th>Action</th>
+                                                <?php
+                                            }
+                                        ?>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <label class="checkboxs">
-                                                <input type="checkbox">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <a class="product-img">
-                                                <img src="assets/img/brand/adidas.png" alt="product">
-                                            </a>
-                                        </td>
-                                        <td>Adidas</td>
-                                        <td>Shoes, sportswear</td>
-                                        <td>
-                                            <a class="me-3" href="editbrand.html">
-                                                <img src="assets/img/icons/edit.svg" alt="img">
-                                            </a>
-                                            <a class="me-3 confirm-text" href="javascript:void(0);">
-                                                <img src="assets/img/icons/delete.svg" alt="img">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkboxs">
-                                                <input type="checkbox">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <a class="product-img">
-                                                <img src="assets/img/brand/colgate.png" alt="product">
-                                            </a>
-                                        </td>
-                                        <td>Colgate</td>
-                                        <td>Oral hygiene. Toothbrushes</td>
-                                        <td>
-                                            <a class="me-3" href="editbrand.html">
-                                                <img src="assets/img/icons/edit.svg" alt="img">
-                                            </a>
-                                            <a class="me-3 confirm-text" href="javascript:void(0);">
-                                                <img src="assets/img/icons/delete.svg" alt="img">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="checkboxs">
-                                                <input type="checkbox">
-                                                <span class="checkmarks"></span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <a class="product-img">
-                                                <img src="assets/img/brand/samsung.png" alt="product">
-                                            </a>
-                                        </td>
-                                        <td>samsung</td>
-                                        <td>Electronics</td>
-                                        <td>
-                                            <a class="me-3" href="editbrand.html">
-                                                <img src="assets/img/icons/edit.svg" alt="img">
-                                            </a>
-                                            <a class="me-3 confirm-text" href="javascript:void(0);">
-                                                <img src="assets/img/icons/delete.svg" alt="img">
-                                            </a>
-                                        </td>
-                                    </tr>
+                                        
+                                        <td><?php echo $rowSelectQuiz["quiz_name"];?></td>
+                                        <td><?php echo $rowSelectQuiz["quiz_total_questions"];?></td>
+                                        <td><?php echo $rowSelectQuiz["quiz_total_marks"];?></td>
+                                        <?php
+                                            if($rowSelectQuiz["quiz_questions_marked"] == 0){
+                                                ?>
+                                                    <td>
+                                                        <a class="me-3" <?php echo "href='quiz-add.php?course=" . $quiz_for_course . "&quiz=" . $rowSelectQuiz["quiz_id"] . "'"?>>
+                                                            <img src="assets/img/icons/edit.svg" alt="img">
+                                                        </a>
+                                                    </td>
+                                                <?php
+                                            }
+                                        ?>
+                                    </tr>                            
                                 </tbody>
                             </table>
                         </div>
