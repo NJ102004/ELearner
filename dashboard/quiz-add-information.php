@@ -63,7 +63,14 @@ ini_set('display_errors', 1);
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
+<style>
+    .dataTables_filter,
+    .dataTables_length,
+    .dataTables_paginate,
+    .dataTables_info{
+        display: none !important;
+    }
+</style>
 <body>
     <!-- <div id="global-loader">
         <div class="whirly-loader"> </div>
@@ -128,7 +135,7 @@ ini_set('display_errors', 1);
 
                 <div class="card">
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="" method="post" style="margin: 20px;">
                             <div class="row">
                                 <div class="col-lg-12 col-sm-6 col-12">
                                     <div class="form-group">
@@ -155,6 +162,96 @@ ini_set('display_errors', 1);
                                 </div>
                             </div>
                         </form>
+                        <hr>
+                        <div class="table-responsive">
+                            <table class="table datanew">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <label class="checkboxs">
+                                                <input type="checkbox" id="select-all">
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </th>
+                                        <th>Image</th>
+                                        <th>Brand Name</th>
+                                        <th>Brand Description</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox">
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a class="product-img">
+                                                <img src="assets/img/brand/adidas.png" alt="product">
+                                            </a>
+                                        </td>
+                                        <td>Adidas</td>
+                                        <td>Shoes, sportswear</td>
+                                        <td>
+                                            <a class="me-3" href="editbrand.html">
+                                                <img src="assets/img/icons/edit.svg" alt="img">
+                                            </a>
+                                            <a class="me-3 confirm-text" href="javascript:void(0);">
+                                                <img src="assets/img/icons/delete.svg" alt="img">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox">
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a class="product-img">
+                                                <img src="assets/img/brand/colgate.png" alt="product">
+                                            </a>
+                                        </td>
+                                        <td>Colgate</td>
+                                        <td>Oral hygiene. Toothbrushes</td>
+                                        <td>
+                                            <a class="me-3" href="editbrand.html">
+                                                <img src="assets/img/icons/edit.svg" alt="img">
+                                            </a>
+                                            <a class="me-3 confirm-text" href="javascript:void(0);">
+                                                <img src="assets/img/icons/delete.svg" alt="img">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="checkboxs">
+                                                <input type="checkbox">
+                                                <span class="checkmarks"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a class="product-img">
+                                                <img src="assets/img/brand/samsung.png" alt="product">
+                                            </a>
+                                        </td>
+                                        <td>samsung</td>
+                                        <td>Electronics</td>
+                                        <td>
+                                            <a class="me-3" href="editbrand.html">
+                                                <img src="assets/img/icons/edit.svg" alt="img">
+                                            </a>
+                                            <a class="me-3 confirm-text" href="javascript:void(0);">
+                                                <img src="assets/img/icons/delete.svg" alt="img">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
