@@ -41,7 +41,41 @@
 
     <div class="container">
         <div class="videocon">
-            <a href="play.php" class="vcon">
+        <?php
+                $query = "SELECT * FROM course_master";
+                $res = mysqli_query($conn, $query);
+                
+                        // Output data of each row
+                  while($row = $res->fetch_assoc()) {
+                    if($row["course_completion_number"] == 1) {
+                    
+                     echo '<a href="play.php" class="vcon">
+                          <div class="vtop">
+                    <img src="'.$row["course_image"].'" alt="">
+                </div>
+                <div class="vbottom">
+                    <div class="subtop">
+                        '.$row["course_description"].'
+                    </div>
+                    <div class="subbot">
+                        <div class="le">
+                            <img src="./assets/img/Cource.png" alt="" height="40px" width="40px">
+                        </div>
+                        <div class="ri">
+                            <b>'.$row["course_name"].'</b> <br> 
+                        </div>
+                    </div>
+                </div>
+            </a>';
+           }
+        else {
+          echo "No courses completion";
+        }
+         } 
+     
+    
+?>
+            <!-- <a href="play.php" class="vcon">
                 <div class="vtop">
                     <img src="./assets/img/j1.png" alt="">
                 </div>
@@ -58,43 +92,8 @@
                         </div>
                     </div>
                 </div>
-            </a>
-            <a href="play.php" class="vcon">
-                <div class="vtop">
-                    <img src="./assets/img/j2.png" alt="">
-                </div>
-                <div class="vbottom">
-                    <div class="subtop">
-                        Lorem ipsum dolor sit amet consectetur, adipisi...
-                    </div>
-                    <div class="subbot">
-                        <div class="le">
-                            <img src="./assets/img/EduCat (6).png" alt="" height="40px" width="40px">
-                        </div>
-                        <div class="ri">
-                            <b>Vansh</b> <br> Channel
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="play.php" class="vcon">
-                <div class="vtop">
-                    <img src="./assets/img/j3.jpeg" alt="">
-                </div>
-                <div class="vbottom">
-                    <div class="subtop">
-                        Lorem ipsum dolor sit amet consectetur, adipisi...
-                    </div>
-                    <div class="subbot">
-                        <div class="le">
-                            <img src="./assets/img/EduCat (5).png" alt="" height="40px" width="40px">
-                        </div>
-                        <div class="ri">
-                            <b>Jay</b> <br> Channel
-                        </div>
-                    </div>
-                </div>
-            </a>
+            </a> -->
+            
         </div>
     </div>
 
