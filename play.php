@@ -12,8 +12,6 @@ if(isset($_SESSION['educat_logedin_user_id']) && (trim ($_SESSION['educat_logedi
 }
     if(!isset($_GET["id"])){
      header("Location: 404.php");
-    }else{
-
     }
 
     if (isset($_GET["videoId"])) {
@@ -212,6 +210,13 @@ if(isset($_SESSION['educat_logedin_user_id']) && (trim ($_SESSION['educat_logedi
                     ?>
                     <h2>About this Course</h2>
                     <p><?php echo $courseData["course_description"];?></p>
+                    <?php
+                    // Define the URL and window dimensions
+                    $link_url = "attemptquiz.php?course=" . $courseId; // Replace this with your actual link URL
+                    $window_width = 1000;
+                    $window_height = 700;
+                    ?>
+                    <a href="<?php echo $link_url; ?>" onclick="openSmallWindow(event)">Attempt Quiz</a>
                 </div>
                 <hr>
                 <h3>About this chapter</h3>
@@ -417,6 +422,15 @@ if(isset($_SESSION['educat_logedin_user_id']) && (trim ($_SESSION['educat_logedi
             var dropdownContent = this.nextElementSibling;
             dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
         });
+    }
+
+    // Open in new window
+    function openSmallWindow(event) {
+        // Prevent the default link behavior
+        event.preventDefault();
+
+        // Open a new window with specified dimensions
+        window.open(event.target.href, '_blank', 'width=<?php echo $window_width; ?>,height=<?php echo $window_height; ?>');
     }
 </script>
 
