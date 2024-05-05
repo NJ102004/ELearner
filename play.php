@@ -204,10 +204,18 @@ if(isset($_SESSION['educat_logedin_user_id']) && (trim ($_SESSION['educat_logedi
                         if($res){
                             $courseData = mysqli_fetch_assoc($res);
                         }
+
+                        $courseId = $_GET["id"];
+                        $sql = "SELECT * FROM course_chapter_list WHERE course_id = $courseId ORDER BY course_chapter_id ASC";
+                        $result = mysqli_query($conn,$sql);
+                        $rowdatafordesc = mysqli_fetch_Assoc($result);
                     ?>
                     <h2>About this Course</h2>
                     <p><?php echo $courseData["course_description"];?></p>
                 </div>
+                <hr>
+                <h3>About this chapter</h3>
+                <p><?php echo $rowdatafordesc["course_chapter_description"];?></p>
                 <hr>
                 <div class="detail">
                     <div class="f">
