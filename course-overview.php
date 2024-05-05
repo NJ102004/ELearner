@@ -176,6 +176,15 @@
                             <?php
                         }
                     ?>
+
+                    <?php
+                    $sqlRating = "SELECT * FROM course_rating WHERE course = $courseID";
+                    $resRating = mysqli_query($conn, $sqlRating);
+                    if($resRating){
+                        
+                    }
+                    ?>
+
                     <h3 style="font-size: 1.6rem; color: rgb(255, 187, 0);"><?php echo ($rowForData["course_rating"] > 0)? $rowForData["course_rating"]: "0";?>.0 <span style="color: rgb(255, 187, 0); font-size: 1.7rem;">
                         <?php
                             if($rowForData["course_rating"] == 0){
