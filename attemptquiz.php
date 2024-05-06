@@ -124,7 +124,7 @@
                     for ($i = 1; $i <= $question_count; $i++) {
                         $select_data_for_quiz_question = "SELECT * FROM quiz_question_master WHERE quiz_id = $quiz";
                         $res_data_for_quiz_question = mysqli_query($conn, $select_data_for_quiz_question);
-                        $row_data_for_quiz_question = mysqli_fetch_assoc($res_data_for_quiz_question);
+                        $row_data_for_quiz_question = mysqli_fetch_assoc($res_data_for_quiz_question);1
                         ?>
 
                                 <div class="quiz">
@@ -132,28 +132,28 @@
                                         <div class="quizque" style="display: flex; justify-content: space-between;"><h2><?php echo $i . ". " . $row_data_for_quiz_question["question"]. "?";?></h2></div>
                                         <div class="quizans" style="display: flex; gap: 30px; margin-top: 10px;">
                                             <div class="optionquiz">
-                                                <input type="radio" name="option_1_question_" value="<?php echo $row_data_for_quiz_question['option_one'];?>" id="q1o1" required>
-                                                <label for="q1o1"><?php echo $row_data_for_quiz_question["option_one"];?></label>
+                                                <input type="radio" name="option_question_<?php echo $i;?>" value="<?php if(($i % 2) == 0){echo $row_data_for_quiz_question['option_two'];}elseif(($i % 3) == 0){echo $row_data_for_quiz_question['option_three']; }elseif(($i % 4) == 0){echo $row_data_for_quiz_question['option_four']; }else{echo $row_data_for_quiz_question['option_one'];}?>" id="q1o1" required>
+                                                <label for="q1o1"><?php if(($i % 2) == 0){echo $row_data_for_quiz_question['option_two'];}elseif(($i % 3) == 0){echo $row_data_for_quiz_question['option_three']; }elseif(($i % 4) == 0){echo $row_data_for_quiz_question['option_four']; }elseif(($i % 5) == 0){echo $row_data_for_quiz_question['option_three']; }else{echo $row_data_for_quiz_question['option_one'];}?></label>
                                             </div>
                                             <div class="optionquiz">
-                                                <input type="radio" name="option_2_question_" value="<?php echo $row_data_for_quiz_question['option_two'];?>" id="q1o2" required>
-                                                <label for="q1o2"><?php echo $row_data_for_quiz_question["option_two"];?></label>
+                                                <input type="radio" name="option_question_<?php echo $i;?>" value="<?php if(($i % 1) == 0){echo $row_data_for_quiz_question['option_two'];}elseif(($i % 4) == 0){echo $row_data_for_quiz_question['option_three']; }elseif(($i % 3) == 0){echo $row_data_for_quiz_question['option_four']; }else{echo $row_data_for_quiz_question['option_one'];}?>" id="q1o2" required>
+                                                <label for="q1o2"><?php if(($i % 2) == 0){echo $row_data_for_quiz_question['option_two'];}elseif(($i % 3) == 0){echo $row_data_for_quiz_question['option_three']; }elseif(($i % 4) == 0){echo $row_data_for_quiz_question['option_four']; }elseif(($i % 5) == 0){echo $row_data_for_quiz_question['option_three']; }else{echo $row_data_for_quiz_question['option_one'];}?></label>
                                             </div>
                                             <div class="optionquiz">
-                                                <input type="radio" name="option_3_question_" value="<?php echo $row_data_for_quiz_question['option_three'];?>" id="q1o3" required>
-                                                <label for="q1o3"><?php echo $row_data_for_quiz_question["option_three"];?></label>
+                                                <input type="radio" name="option_question_<?php echo $i;?>" value="<?php if(($i % 1) == 0){echo $row_data_for_quiz_question['option_one'];}elseif(($i % 4) == 0){echo $row_data_for_quiz_question['option_four']; }elseif(($i % 3) == 0){echo $row_data_for_quiz_question['option_two']; }else{echo $row_data_for_quiz_question['option_three'];}?>" id="q1o3" required>
+                                                <label for="q1o3"><?php if(($i % 1) == 0){echo $row_data_for_quiz_question['option_one'];}elseif(($i % 4) == 0){echo $row_data_for_quiz_question['option_four']; }elseif(($i % 3) == 0){echo $row_data_for_quiz_question['option_two']; }else{echo $row_data_for_quiz_question['option_three'];}?></label>
                                             </div>
                                             <div class="optionquiz">
-                                                <input type="radio" name="option_4_question_" value="<?php echo $row_data_for_quiz_question['option_four'];?>" id="q1o4" required>
-                                                <label for="q1o4"><?php echo $row_data_for_quiz_question["option_four"];?></label>
+                                                <input type="radio" name="option_question_<?php echo $i;?>" value="<?php echo $row_data_for_quiz_question['option_four'];?><?php if(($i % 2) == 0){echo $row_data_for_quiz_question['option_two'];}elseif(($i % 3) == 0){echo $row_data_for_quiz_question['option_three']; }elseif(($i % 4) == 0){echo $row_data_for_quiz_question['option_four']; }else{echo $row_data_for_quiz_question['option_one'];}?>" id="q1o4" required>
+                                                <label for="q1o4"><?php if(($i % 2) == 0){echo $row_data_for_quiz_question['option_two'];}elseif(($i % 3) == 0){echo $row_data_for_quiz_question['option_three']; }elseif(($i % 4) == 0){echo $row_data_for_quiz_question['option_four']; }elseif(($i % 5) == 0){echo $row_data_for_quiz_question['option_three']; }else{echo $row_data_for_quiz_question['option_one'];}?></label>
                                             </div>
-                                            <input type="reset" value="Clear my choice" class="clear">
                                         </div>
                                     </div>
                                 </div>
                                 <?php
                     }
                     ?>
+                    <input type="reset" value="Clear All Attempts" class="clear">
                     <input type="submit" value="Submit">
                     <a href="http://localhost/projects/EduCat/play.php?id=<?php echo $course;?>">Cancel</a>
             </form>

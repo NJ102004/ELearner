@@ -216,7 +216,7 @@ if(isset($_SESSION['educat_logedin_user_id']) && (trim ($_SESSION['educat_logedi
                     $window_width = 1000;
                     $window_height = 700;
                     ?>
-                    <a href="<?php echo $link_url; ?>" onclick="openSmallWindow(event)">Attempt Quiz</a>
+                    <!-- <a href="<?php echo $link_url; ?>" onclick="openSmallWindow(event)">Attempt Quiz</a> -->
                 </div>
                 <hr>
                 <h3>About this chapter</h3>
