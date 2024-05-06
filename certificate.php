@@ -41,23 +41,23 @@ $html = '
 <div class="container">
         <div class="topcer">
             <div class="cerleft">
-                <img src="assets/img/EduCat (3).png" alt="" height="300px" width="300px">
+                <h1><b style="color:rgb(0, 0, 89)">Edu</b><b style="color: orange;">Cat</b></h1>
             </div>
             <div class="cerright">
                 <p>Certificate no: ssdjsgfujdb-ahag287262926-'.$randomHex.'</p>
-                <p>certificate url: https://helloworld.com</p>
                 <p>Reference number: 000'.$id.'</p>
+                <p>Date: <b>'.$today.'</b></p>
             </div>
         </div>
         <div class="midcer">
             <p style="font-size: 1.3rem; font-weight: bolder; color: rgb(53, 53, 53);">CERTIFICATE OF COMPLETION</p><br>
-            <p style="font-size: 3rem;">सीखेँ <b>'.$rowdata['course_name'].'</b></h1>
-            <p style="font-size: 3rem; color: black;">'.$rowdataforLanguage['language_name'].' </p>
+            <p style="font-size: 3rem;"><b>'.$rowdata['course_name'].'</b></h1>
+            <p style="font-size: 1rem; color: black;">Language: <b>'.$rowdataforLanguage['language_name'].'</b> </p>
             <p style="font-size: 1rem;">Instructors:&nbsp;&nbsp;<b>'.$rowdata1['user_name'].'</b></p>
         </div>
         <div class="botcer">
-            <h1 style="font-size: 2rem; font-weight: bolder; color: black;">'.$userdata['user_name'].'</h1><br>
-            <p>Date&nbsp;&nbsp;<b>'.$today.'</b></p>
+            <h1 style="font-size: 2rem; font-weight: bolder; color: black;"><b><i>'.$userdata['user_name'].'</i></b></h1><br>
+            
             </div>
             </div>';
             $mpdf = new \Mpdf\Mpdf();
