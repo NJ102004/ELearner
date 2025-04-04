@@ -1,11 +1,7 @@
 <?php
 $currentURL = $_SERVER['PHP_SELF'];
 $currentPage = basename($currentURL);
-$user_role = $_SESSION['user_role'] ?? null; // Make sure this is properly set in your login system.
-$userdata = $_SESSION['userdata'] ?? null; // Retrieve user data if it's stored in session.
 ?>
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -13,7 +9,7 @@ $userdata = $_SESSION['userdata'] ?? null; // Retrieve user data if it's stored 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fontschr.googleapis.com/css2?family=Alegreya+Sans+SC&family=Poppins&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="./assets/img/EduCat (4)_rm.png">
 
     <?php

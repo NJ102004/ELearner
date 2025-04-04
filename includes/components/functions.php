@@ -71,14 +71,71 @@ function sendOTP($email, $otp)
     }
 }
 
-function sendVerificationEmail($to, $verificationLink, $emailSubject) {
+function forgetOTP($email, $otp)
+{
+    $mail = new PHPMailer(true);
+
+    try {
+        // Dynamic email sender details (fetch from database)
+        $senderEmail = getSenderEmail();
+
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $senderEmail['email'];
+        $mail->Password   = $senderEmail['password'];
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        // Set proper encoding and headers
+        $mail->CharSet = 'UTF-8'; // ✅ Ensuring the email supports all characters
+        $mail->XMailer = 'ELearnerMailer/1.0'; // ✅ Custom mailer to reduce spam suspicion
+
+        $mail->setFrom($senderEmail['email'], 'ELearner');
+        $mail->addAddress($email);
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Your OTP Code';
+        $mail->Body = "
+        <div style='font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 20px; border: 1px solid #ddd; border-radius: 10px;'>
+            <h2 style='color: #4CAF50;'>Password Reset Request - ELearner</h2>
+            <p>Dear User,</p>
+            <p>We received a request to reset your password for your <strong>ELearner</strong> account. Please use the OTP code provided below to proceed:</p>
+    
+            <div style='font-size: 18px; margin: 20px 0; padding: 10px; background-color: #f0f0f0; border-radius: 5px; text-align: center;'>
+                <strong style='color: #4CAF50;'>$otp</strong>
+            </div>
+    
+            <p><strong>Note:</strong> This OTP code is valid for <strong>5 minutes</strong>. If it expires, you can request a new one from the password reset page.</p>
+    
+            <p>If you did not request a password reset, please ignore this email or contact our support team immediately.</p>
+    
+            <p>Best regards,<br>
+                The <strong>ELearner</strong> Team</p>
+    
+                <hr>
+            <p style='font-size: 12px; color: #888;'>This is an automated email. Please do not reply directly to this message.</p>
+        </div>
+
+    ";
+
+
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
+}
+
+function sendVerificationEmail($to, $verificationLink, $emailSubject)
+{
     $mail = new PHPMailer(true);
 
     try {
 
         // Dynamic email sender details (fetch from database)
         $senderEmail = getSenderEmail();
-        
+
         // Server settings
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
