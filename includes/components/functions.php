@@ -71,6 +71,42 @@ function sendOTP($email, $otp)
     }
 }
 
+function sendVerificationEmail($to, $verificationLink, $emailSubject) {
+    $mail = new PHPMailer(true);
+
+    try {
+
+        // Dynamic email sender details (fetch from database)
+        $senderEmail = getSenderEmail();
+        
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username   = $senderEmail['email'];
+        $mail->Password   = $senderEmail['password'];
+        $mail->SMTPSecure = 'tls'; // Use 'tls' or 'ssl'
+        // For SSL use this port
+        // $mail->Port = 465;
+        // For TLS use this port
+        $mail->Port = 587;
+
+        // Recipients
+        $mail->setFrom($senderEmail['email'], 'ELearner Team');
+        $mail->addAddress($to);
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = $emailSubject;
+        $mail->Body = $verificationLink;
+
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
+}
+
 
 // Function to fetch sender email details from the database
 function getSenderEmail()

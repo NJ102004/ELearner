@@ -1,8 +1,8 @@
 <?php
-require 'includes/mailer.php';
+require 'includes/components/functions.php';
 require 'includes/scripts/connection.php';
 session_start();
-$userEmail = $_SESSION['educat_temp_data_transfer_variable_between_pages'];  // Actual user's email
+$userEmail = $_SESSION['educat_temp_data_transfer_variable_between_pages'];
 
 // FOR BASE URL PER USER FILE PATH
     // Get the current URL
