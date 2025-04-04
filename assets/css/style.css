@@ -1637,3 +1637,44 @@ p {
     font-size: 1.3rem;
     text-align: center;
 }
+
+
+@media (max-width: 992px) {
+    .banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .swiper-slide {
+        min-width: 70%;
+    }
+
+    .rightc, .leftc {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        flex-direction: column;
+    }
+
+    .swiper-slide {
+        min-width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner {
+        flex-direction: column;
+    }
+
+    .swiper-slide {
+        min-width: 90%;
+    }
+
+    .lbanner h1, .lbanner h2 {
+        font-size: 1.5rem;
+    }
+}

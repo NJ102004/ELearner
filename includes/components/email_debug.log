@@ -1,0 +1,498 @@
+2025-04-03 16:25:52 - Level 3: Connection: opening to smtp.gmail.com:587, timeout=300, options=array()
+2025-04-03 16:25:52 - Level 3: Connection: opened
+2025-04-03 16:25:52 - Level 2: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-2297866e3a7sm14918815ad.175 - gsmtp
+
+2025-04-03 16:25:52 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:25:52 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:25:52 - Level 1: CLIENT -> SERVER: STARTTLS
+
+2025-04-03 16:25:53 - Level 2: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2025-04-03 16:25:53 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:25:53 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:25:53 - Level 1: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-03 16:25:54 - Level 2: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-03 16:25:54 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:25:54 - Level 2: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-03 16:25:54 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:25:54 - Level 2: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2025-04-03 16:25:54 - Level 1: CLIENT -> SERVER: MAIL FROM:<khuntgaming@gmail.com>
+
+2025-04-03 16:25:54 - Level 2: SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-2297866e3a7sm14918815ad.175 - gsmtp
+
+2025-04-03 16:25:54 - Level 1: CLIENT -> SERVER: RCPT TO:<khuntneel123@gmail.com>
+
+2025-04-03 16:25:55 - Level 2: SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-2297866e3a7sm14918815ad.175 - gsmtp
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: DATA
+
+2025-04-03 16:25:55 - Level 2: SERVER -> CLIENT: 354 Go ahead d9443c01a7336-2297866e3a7sm14918815ad.175 - gsmtp
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: Date: Thu, 3 Apr 2025 16:25:52 +0200
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: To: khuntneel123@gmail.com
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: From: EduCat <khuntgaming@gmail.com>
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: Subject: Your OTP Code
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: Message-ID: <FWTvx3kGaZQEi04lmGRTEdg3xn8GmOzT6zaVmpeXc@localhost>
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: <p>Your OTP code is <strong>186537</strong>. It is valid for 5 minutes.</p>
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:25:55 - Level 1: CLIENT -> SERVER: .
+
+2025-04-03 16:25:56 - Level 2: SERVER -> CLIENT: 250 2.0.0 OK  1743690324 d9443c01a7336-2297866e3a7sm14918815ad.175 - gsmtp
+
+2025-04-03 16:25:56 - Level 1: CLIENT -> SERVER: QUIT
+
+2025-04-03 16:25:56 - Level 2: SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-2297866e3a7sm14918815ad.175 - gsmtp
+
+2025-04-03 16:25:56 - Level 3: Connection: closed
+2025-04-03 16:25:56 - Level 3: Connection: opening to smtp.gmail.com:587, timeout=300, options=array()
+2025-04-03 16:25:56 - Level 3: Connection: opened
+2025-04-03 16:25:56 - Level 2: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 98e67ed59e1d1-305983db5f2sm1539126a91.48 - gsmtp
+
+2025-04-03 16:25:56 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:25:57 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:25:57 - Level 1: CLIENT -> SERVER: STARTTLS
+
+2025-04-03 16:25:57 - Level 2: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2025-04-03 16:25:57 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:25:58 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:25:58 - Level 1: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-03 16:25:58 - Level 2: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-03 16:25:58 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:25:58 - Level 2: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-03 16:25:58 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:25:58 - Level 2: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2025-04-03 16:25:58 - Level 1: CLIENT -> SERVER: MAIL FROM:<khuntgaming@gmail.com>
+
+2025-04-03 16:25:59 - Level 2: SERVER -> CLIENT: 250 2.1.0 OK 98e67ed59e1d1-305983db5f2sm1539126a91.48 - gsmtp
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: RCPT TO:<khuntneel123@gmail.com>
+
+2025-04-03 16:25:59 - Level 2: SERVER -> CLIENT: 250 2.1.5 OK 98e67ed59e1d1-305983db5f2sm1539126a91.48 - gsmtp
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: DATA
+
+2025-04-03 16:25:59 - Level 2: SERVER -> CLIENT: 354 Go ahead 98e67ed59e1d1-305983db5f2sm1539126a91.48 - gsmtp
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: Date: Thu, 3 Apr 2025 16:25:56 +0200
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: To: khuntneel123@gmail.com
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: From: EduCat <khuntgaming@gmail.com>
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: Subject: Your OTP Code
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: Message-ID: <Uve5Jf8kNvSd81CvFHtOCbuR5UCmBVBETjRe1oaZM@localhost>
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: <p>Your OTP code is <strong>553837</strong>. It is valid for 5 minutes.</p>
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:25:59 - Level 1: CLIENT -> SERVER: .
+
+2025-04-03 16:26:00 - Level 2: SERVER -> CLIENT: 250 2.0.0 OK  1743690329 98e67ed59e1d1-305983db5f2sm1539126a91.48 - gsmtp
+
+2025-04-03 16:26:00 - Level 1: CLIENT -> SERVER: QUIT
+
+2025-04-03 16:26:00 - Level 2: SERVER -> CLIENT: 221 2.0.0 closing connection 98e67ed59e1d1-305983db5f2sm1539126a91.48 - gsmtp
+
+2025-04-03 16:26:00 - Level 3: Connection: closed
+2025-04-03 16:29:42 - Level 3: Connection: opening to smtp.gmail.com:587, timeout=300, options=array()
+2025-04-03 16:29:42 - Level 3: Connection: opened
+2025-04-03 16:29:42 - Level 2: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-2297866e4cdsm14985445ad.197 - gsmtp
+
+2025-04-03 16:29:42 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:29:43 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:29:43 - Level 1: CLIENT -> SERVER: STARTTLS
+
+2025-04-03 16:29:43 - Level 2: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2025-04-03 16:29:43 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:29:44 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:29:44 - Level 1: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-03 16:29:44 - Level 2: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-03 16:29:44 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:29:44 - Level 2: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-03 16:29:44 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:29:44 - Level 2: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2025-04-03 16:29:44 - Level 1: CLIENT -> SERVER: MAIL FROM:<khuntgaming@gmail.com>
+
+2025-04-03 16:29:45 - Level 2: SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-2297866e4cdsm14985445ad.197 - gsmtp
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: RCPT TO:<khuntneel123@gmail.com>
+
+2025-04-03 16:29:45 - Level 2: SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-2297866e4cdsm14985445ad.197 - gsmtp
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: DATA
+
+2025-04-03 16:29:45 - Level 2: SERVER -> CLIENT: 354 Go ahead d9443c01a7336-2297866e4cdsm14985445ad.197 - gsmtp
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: Date: Thu, 3 Apr 2025 16:29:42 +0200
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: To: khuntneel123@gmail.com
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: From: EduCat <khuntgaming@gmail.com>
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: Subject: Your OTP Code
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: Message-ID: <z73zeAzKlw2rHMcNurNvVXWwp01xJV4e7rBbUChPZg@localhost>
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: <p>Your OTP code is <strong>419836</strong>. It is valid for 5 minutes.</p>
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:29:45 - Level 1: CLIENT -> SERVER: .
+
+2025-04-03 16:29:46 - Level 2: SERVER -> CLIENT: 250 2.0.0 OK  1743690555 d9443c01a7336-2297866e4cdsm14985445ad.197 - gsmtp
+
+2025-04-03 16:29:46 - Level 1: CLIENT -> SERVER: QUIT
+
+2025-04-03 16:29:46 - Level 2: SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-2297866e4cdsm14985445ad.197 - gsmtp
+
+2025-04-03 16:29:46 - Level 3: Connection: closed
+2025-04-03 16:34:01 - Level 3: Connection: opening to smtp.gmail.com:587, timeout=300, options=array()
+2025-04-03 16:34:01 - Level 3: Connection: opened
+2025-04-03 16:34:01 - Level 2: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-739da0e7013sm1585151b3a.171 - gsmtp
+
+2025-04-03 16:34:01 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:34:02 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:34:02 - Level 1: CLIENT -> SERVER: STARTTLS
+
+2025-04-03 16:34:02 - Level 2: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2025-04-03 16:34:02 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:34:03 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:34:03 - Level 1: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-03 16:34:03 - Level 2: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-03 16:34:03 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:34:03 - Level 2: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-03 16:34:03 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:34:04 - Level 2: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: MAIL FROM:<khuntgaming@gmail.com>
+
+2025-04-03 16:34:04 - Level 2: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-739da0e7013sm1585151b3a.171 - gsmtp
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: RCPT TO:<test-0cpzfmhup@srv1.mail-tester.com>
+
+2025-04-03 16:34:04 - Level 2: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-739da0e7013sm1585151b3a.171 - gsmtp
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: DATA
+
+2025-04-03 16:34:04 - Level 2: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-739da0e7013sm1585151b3a.171 - gsmtp
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: Date: Thu, 3 Apr 2025 16:34:01 +0200
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: To: test-0cpzfmhup@srv1.mail-tester.com
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: From: EduCat <khuntgaming@gmail.com>
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: Subject: Your OTP Code
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: Message-ID: <VZu0ukHPh9QVVqrJ9eQi7XfyJYcNVa0jRTZfnt0DSk@localhost>
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: <p>Your OTP code is <strong>039459</strong>. It is valid for 5 minutes.</p>
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:34:04 - Level 1: CLIENT -> SERVER: .
+
+2025-04-03 16:34:05 - Level 2: SERVER -> CLIENT: 250 2.0.0 OK  1743690814 d2e1a72fcca58-739da0e7013sm1585151b3a.171 - gsmtp
+
+2025-04-03 16:34:05 - Level 1: CLIENT -> SERVER: QUIT
+
+2025-04-03 16:34:06 - Level 2: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-739da0e7013sm1585151b3a.171 - gsmtp
+
+2025-04-03 16:34:06 - Level 3: Connection: closed
+2025-04-03 16:34:37 - Level 3: Connection: opening to smtp.gmail.com:587, timeout=300, options=array()
+2025-04-03 16:34:37 - Level 3: Connection: opened
+2025-04-03 16:34:37 - Level 2: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-739d9ea152fsm1550446b3a.116 - gsmtp
+
+2025-04-03 16:34:37 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:34:38 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:34:38 - Level 1: CLIENT -> SERVER: STARTTLS
+
+2025-04-03 16:34:38 - Level 2: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2025-04-03 16:34:38 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:34:39 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:34:39 - Level 1: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-03 16:34:39 - Level 2: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-03 16:34:39 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:34:39 - Level 2: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-03 16:34:39 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:34:39 - Level 2: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2025-04-03 16:34:39 - Level 1: CLIENT -> SERVER: MAIL FROM:<khuntgaming@gmail.com>
+
+2025-04-03 16:34:40 - Level 2: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-739d9ea152fsm1550446b3a.116 - gsmtp
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: RCPT TO:<xxx@srv1.mail-tester.com>
+
+2025-04-03 16:34:40 - Level 2: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-739d9ea152fsm1550446b3a.116 - gsmtp
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: DATA
+
+2025-04-03 16:34:40 - Level 2: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-739d9ea152fsm1550446b3a.116 - gsmtp
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: Date: Thu, 3 Apr 2025 16:34:37 +0200
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: To: xxx@srv1.mail-tester.com
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: From: EduCat <khuntgaming@gmail.com>
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: Subject: Your OTP Code
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: Message-ID: <DxcdBvWwilD0Xdc7rEF880TCgf9CKTwlcI0fsa2Qk8@localhost>
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: <p>Your OTP code is <strong>381684</strong>. It is valid for 5 minutes.</p>
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:34:40 - Level 1: CLIENT -> SERVER: .
+
+2025-04-03 16:34:41 - Level 2: SERVER -> CLIENT: 250 2.0.0 OK  1743690850 d2e1a72fcca58-739d9ea152fsm1550446b3a.116 - gsmtp
+
+2025-04-03 16:34:41 - Level 1: CLIENT -> SERVER: QUIT
+
+2025-04-03 16:34:41 - Level 2: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-739d9ea152fsm1550446b3a.116 - gsmtp
+
+2025-04-03 16:34:41 - Level 3: Connection: closed
+2025-04-03 16:37:02 - Level 3: Connection: opening to smtp.gmail.com:587, timeout=300, options=array()
+2025-04-03 16:37:02 - Level 3: Connection: opened
+2025-04-03 16:37:03 - Level 2: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 98e67ed59e1d1-305983b9924sm1541553a91.39 - gsmtp
+
+2025-04-03 16:37:03 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:37:03 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:37:03 - Level 1: CLIENT -> SERVER: STARTTLS
+
+2025-04-03 16:37:03 - Level 2: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2025-04-03 16:37:03 - Level 1: CLIENT -> SERVER: EHLO localhost
+
+2025-04-03 16:37:04 - Level 2: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2401:4900:8899:9af:c8c3:e70c:2ec1:a2b2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2025-04-03 16:37:04 - Level 1: CLIENT -> SERVER: AUTH LOGIN
+
+2025-04-03 16:37:04 - Level 2: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2025-04-03 16:37:04 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:37:04 - Level 2: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2025-04-03 16:37:04 - Level 1: CLIENT -> SERVER: [credentials hidden]
+2025-04-03 16:37:05 - Level 2: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+2025-04-03 16:37:05 - Level 1: CLIENT -> SERVER: MAIL FROM:<khuntgaming@gmail.com>
+
+2025-04-03 16:37:05 - Level 2: SERVER -> CLIENT: 250 2.1.0 OK 98e67ed59e1d1-305983b9924sm1541553a91.39 - gsmtp
+
+2025-04-03 16:37:05 - Level 1: CLIENT -> SERVER: RCPT TO:<khuntneel8@gmail.com>
+
+2025-04-03 16:37:05 - Level 2: SERVER -> CLIENT: 250 2.1.5 OK 98e67ed59e1d1-305983b9924sm1541553a91.39 - gsmtp
+
+2025-04-03 16:37:05 - Level 1: CLIENT -> SERVER: DATA
+
+2025-04-03 16:37:06 - Level 2: SERVER -> CLIENT: 354 Go ahead 98e67ed59e1d1-305983b9924sm1541553a91.39 - gsmtp
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: Date: Thu, 3 Apr 2025 16:37:02 +0200
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: To: khuntneel8@gmail.com
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: From: EduCat <khuntgaming@gmail.com>
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: Subject: Your OTP Code
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: Message-ID: <iu93xv0cbqHdbxE1nGcnxRuSFPRUJhBkj5uGQBoYLg@localhost>
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: MIME-Version: 1.0
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: <p>Your OTP code is <strong>178852</strong>. It is valid for 5 minutes.</p>
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: 
+
+2025-04-03 16:37:06 - Level 1: CLIENT -> SERVER: .
+
+2025-04-03 16:37:07 - Level 2: SERVER -> CLIENT: 250 2.0.0 OK  1743690995 98e67ed59e1d1-305983b9924sm1541553a91.39 - gsmtp
+
+2025-04-03 16:37:07 - Level 1: CLIENT -> SERVER: QUIT
+
+2025-04-03 16:37:07 - Level 2: SERVER -> CLIENT: 221 2.0.0 closing connection 98e67ed59e1d1-305983b9924sm1541553a91.39 - gsmtp
+
+2025-04-03 16:37:07 - Level 3: Connection: closed

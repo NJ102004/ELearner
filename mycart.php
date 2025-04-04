@@ -11,7 +11,6 @@
 
     // check user getin via get method or direct
     if(isset($_GET["id"])){
-
         $id = $_GET["id"];
         $currentDate = date('d-m-Y');
         

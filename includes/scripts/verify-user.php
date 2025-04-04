@@ -4,7 +4,7 @@ if (isset($_GET['token'])) {
     $verificationToken = $_GET['token'];
 
     // Perform a database query to check if the token is valid
-    require 'connection.php';
+    require 'includes/scripts/connection.php';
 
     // Select the user email and verification token from the verification table
     $selectQuery = "SELECT user_email FROM verification WHERE token = '$verificationToken' AND is_verified = 0";

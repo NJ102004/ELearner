@@ -22,19 +22,6 @@
         <div class="heading">
           <h1>Sign In</h1>
         </div>
-        <h4>
-          <?php
-            session_start();
-            if (isset($_SESSION['educat_error_message'])){
-                echo "<a>" . $_SESSION['educat_error_message'] . "</a>";
-                unset($_SESSION['educat_error_message']);
-            }
-            if (isset($_SESSION['educat_success_message'])){
-              echo "<a>" . $_SESSION['educat_success_message'] . "</a>";
-              unset($_SESSION['educat_success_message']);
-            }
-          ?>
-        </h4>
         <div class="inputs">
           <input type="email" name="educat_login_email" class="input" placeholder="Email" autofocus required>
           <input type="password" name="educat_login_password" class="input" placeholder="Password" pattern=".{8,}" title="Password must be at least 8 characters long" required>
