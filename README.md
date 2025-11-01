@@ -1,5 +1,5 @@
 # ELearner
-Project Overview
+Project Overview :
 
 💻 Group Members:
 
@@ -13,7 +13,7 @@ Sarvaiya Kishan –UI/UX Designer
 
 Khunt Neel – Tester
 
-This is an E-Learning web application designed to provide online courses, quizzes, and progress tracking for learners.
+--> This is an E-Learning web application designed to provide online courses, quizzes, and progress tracking for learners.
 The platform allows students to register, access courses, and track their progress, while instructors can create and manage course content.
 
 🚀 Features
