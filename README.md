@@ -1,12 +1,16 @@
 # ELearner
 Project Overview
 
-Group Members:
+💻 Group Members:
 
 Balar Hill – Project Leader
+
 Jasoliya Kushal –Developer / Database Manager
+
 Ghelani Akshay – Developer
+
 Sarvaiya Kishan –UI/UX Designer 
+
 Khunt Neel – Tester
 
 This is an E-Learning web application designed to provide online courses, quizzes, and progress tracking for learners.
